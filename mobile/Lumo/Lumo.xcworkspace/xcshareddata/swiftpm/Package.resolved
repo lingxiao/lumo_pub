@@ -1,0 +1,50 @@
+{
+  "pins" : [
+    {
+      "identity" : "alerttoast",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/elai950/AlertToast.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "a437862bb6605080a5816e866cbd4ac8c8657b49"
+      }
+    },
+    {
+      "identity" : "codescanner",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/twostraws/CodeScanner",
+      "state" : {
+        "branch" : "main",
+        "revision" : "9aef09bf5c0274689a89c2fd71794011bebdc43f"
+      }
+    },
+    {
+      "identity" : "neumorphic",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/costachung/neumorphic",
+      "state" : {
+        "branch" : "master",
+        "revision" : "03c6f7b3d27bfb28a082db2e9ffae45fbc69cb8b"
+      }
+    },
+    {
+      "identity" : "swift-snapshot-testing",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/pointfreeco/swift-snapshot-testing.git",
+      "state" : {
+        "revision" : "f8a9c997c3c1dab4e216a8ec9014e23144cbab37",
+        "version" : "1.9.0"
+      }
+    },
+    {
+      "identity" : "swiftui-cardstackview",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/dadalar/SwiftUI-CardStackView.git",
+      "state" : {
+        "branch" : "master",
+        "revision" : "9b45ef54b9e7bfbee46fe4a5982ecf449ac2b47c"
+      }
+    }
+  ],
+  "version" : 2
+}

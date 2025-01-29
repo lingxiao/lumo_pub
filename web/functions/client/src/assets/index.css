@@ -1,0 +1,319 @@
+body {
+	margin: 0;
+
+	padding: 0;
+
+	/** background image */
+	/* source:  
+	https://giphy.com/gifs/gilmoregirls-netflix-gilmore-girls-3ofT5X7GY93iNArORq  
+	https://giphy.com/gifs/coelho-fabiocoelho-fpc1987-H7llxoUnid1u27TkaH
+	*/
+
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	overflow: hidden;
+
+	/*background: rgba(0,0,0,1.0);  /*fallback colour. Make sure this is just one solid colour.
+	background: -webkit-linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.9));
+	background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0,0,0,0.9)); */
+	height: 100vh;
+
+	/*
+	@Use:  full screen gradient
+	@Doc:  https://developpaper.com/css-to-achieve-background-gradient-and-automatic-full-screen-code/
+	*/
+	/*background-image: -webkit-linear-gradient(60deg,rgba(218, 169, 215, 0.637),rgba(128, 174, 235, 0.904));*/
+	/*top: 0;*/
+
+
+	/**
+	* 
+	* @Use: full screen gif
+	* @Ref: https://mashable.com/article/how-to-screen-record-mac
+	* 
+	*/ 
+	/*background-image: url("./tattoo.gif");*/
+
+	/* fonts  */
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+	'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+	sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	/* cursor */
+	/* see:  ;
+	https://stackoverflow.com/questions/18551277/using-external-images-for-css-custom-cursors
+	*/
+	/*cursor:url(cursor-pointer.svg), pointer;*/
+	/*cursor:url(cursor.svg), auto;	*/
+
+}
+
+/* cursors */
+body {
+  cursor: url(cursor.svg), default !important;
+}
+button,
+select,
+.pointer {
+  cursor: url(cursorpointer.svg), pointer !important;
+}
+
+
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+	monospace;
+}
+
+
+
+/* scroll bar  */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+/**/
+::-webkit-scrollbar-corner {background-color: transparent;}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: rba(0,0,0,0);
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: transparent;
+}
+
+
+
+/* fonts  */
+@font-face {
+    font-family: "NeueMachina-Ultralight";
+    src: url(./../../public/font/NeueMachina-Ultralight.otf);
+}
+@font-face {
+    font-family: "NeueMachina-Light";
+    src: url(./../../public/font/NeueMachina-Light.otf);
+}
+@font-face {
+    font-family: "NeueMachina-Medium";
+    src: url(./../../public/font/NeueMachina-Medium.otf);
+}
+@font-face {
+    font-family: "NeueMachina-Regular";
+    src: url(./../../public/font/NeueMachina-Regular.otf);
+}
+@font-face {
+    font-family: "NeueMachina-Bold";
+    src: url(./../../public/font/NeueMachina-Bold.otf);
+}
+@font-face {
+    font-family: "NeueMachina-Black";
+    src: url(./../../public/font/NeueMachina-Black.otf);
+}
+@font-face {
+    font-family: "NeueMachina-Ultrabold";
+    src: url(./../../public/font/NeueMachina-Ultrabold.otf);
+}
+.match{
+    @media (max-width: 767px) {
+        display: "none" !important;
+      }
+}
+
+
+/* hover to show about */
+.about-container {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  flex-direction: column;
+  /*padding: 14px 0;*/
+  /*text-align: right;*/
+}
+
+/*  onload crt TV effect  */
+
+#crt-container {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  animation: crtAnimation 1.2s 0.2s both;
+  animation-timing-function: cubic-bezier(0.2, -0.1, 0, 1);
+  overflow: hidden;
+  padding: 30px;
+  padding-bottom: calc(30px + env(safe-area-inset-bottom));
+}
+
+@keyframes crtAnimation {
+  0% {
+    transform: scaleY(0) scaleX(0);
+    filter: brightness(15) blur(0px);
+  }
+  20% {
+    transform: scaleY(0.02) scaleX(0.8);
+    filter: brightness(15) blur(0px);
+  }
+}
+
+/* CRT effects  */
+#crt-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(lines.jpeg);
+  z-index: 10;
+  background-size: 7px auto;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.4;
+  animation: moveDownAnimation 150s linear infinite;
+}
+
+#vignette {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url(vignette.png);
+  z-index: 11;
+  background-size: 100% 100%;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+#darken {
+  position: absolute;
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1;
+}
+
+
+
+
+/* font glow effects  */
+
+:root {
+  /* prettier-ignore */
+  --dim-green-glow: 
+    0px 0px 1px hsl(120, 100%, 80%),
+    0px 0px 10px green;
+  /* prettier-ignore */
+  --green-glow-drop-shadow: 
+    drop-shadow(0px 0px 2px hsl(120, 100%, 80%))
+    drop-shadow(0px 0px 8px green);
+  /* prettier-ignore */
+  --green-glow-small: 
+    0px 0px 1px hsl(120, 100%, 80%), 
+    0px 0px 2px hsl(120, 100%, 80%),
+    0px 0px 10px green;
+  /* prettier-ignore */
+  --green-glow: 
+    0px 0px 2px hsl(120, 100%, 80%),
+    0px 0px 15px green,
+    0px 0px 60px green;
+  /* prettier-ignore */
+  --red-glow: 
+    0px 0px 1px hsl(0, 100%, 80%), 
+    0px 0px 2px hsl(0, 100%, 80%),
+    0px 0px 15px hsl(0, 100%, 50%), 
+    0px 0px 60px red;
+  /* prettier-ignore */
+  --blue-glow:
+    0px 0px 1px hsl(192, 100%, 80%), 
+    0px 0px 16px hsl(244, 90%, 49%),
+    0px 0px 30px hsl(244, 100%, 50%),
+    0px 0px 60px white;
+}
+
+
+.green-box {
+  color: rgb(235, 235, 235);
+  box-shadow: var(--green-glow);
+  /* transform: translateZ(100px); */
+  backface-visibility: hidden;
+}
+
+.green-box-small {
+  color: rgb(235, 235, 235);
+  box-shadow: var(--green-glow-small);
+  /* transform: translateZ(100px); */
+  backface-visibility: hidden;
+}
+
+.green-glow,
+.tippy-box {
+  color: rgb(235, 235, 235);
+  text-shadow: var(--green-glow);
+  /* transform: translateZ(100px); */
+  backface-visibility: hidden;
+}
+
+.red {
+  color: rgb(235, 235, 235);
+  text-shadow: var(--red-glow);
+  /* transform: translateZ(100px); */
+  backface-visibility: hidden;
+}
+
+.red-box {
+  color: rgb(235, 235, 235);
+  box-shadow: var(--red-glow);
+  /* transform: translateZ(100px); */
+  backface-visibility: hidden;
+}
+.blue {
+  color: rgb(235, 235, 235);
+  text-shadow: var(--blue-glow);
+}
+
+/**
+ * 
+ * @Use; corner edges
+ * @Source:  https://stackoverflow.com/questions/14387690/how-can-i-show-only-corner-borders;
+ * 
+*/
+.corner-box {
+  --b:5px;   /* thickness of the border */
+  --c:red;   /* color of the border */
+  --w:20px;  /* width of border */  
+
+  padding:var(--b); /* space for the border */
+  
+  position:relative;
+  /*Irrelevant code*/  
+  width:200px;
+  height:100px;
+  box-sizing:border-box;
+  margin:5px;
+  display:inline-flex;
+  font-size:30px;
+  justify-content:center;
+  align-items:center;
+  line-height:90px;
+}
+
+
